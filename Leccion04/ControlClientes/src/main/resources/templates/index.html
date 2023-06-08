@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1> 
+        <br/>
+        <div th:if="${libros != null and !libros.empty}">
+                <table border="3">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Editorial</th>
+                        <th>Extension</th>
+                        <th>Autor</th>
+                    </tr>
+                    <!-- Ciclo for para cada persona guardada en la parte de controlador -->
+                    <tr th:each="libro : ${libros}">
+                        <td th:text="${libro.nombre}">Mostrar Nombre</td>
+                        <td th:text="${libro.editorial}">Mostrar Editorial</td>
+                        <td th:text="${libro.extension + ' páginas'}">Mostrar Extensión</td>
+                        <td th:text="${libro.autor}">Mostrar Autor</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div th:if="${libros == null or libros.empty}">
+                Lista de libros esta vacia
+            </div>
+    </body>
+    </html>
