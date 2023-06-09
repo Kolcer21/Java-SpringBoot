@@ -6,22 +6,26 @@
         <meta charset="UTF-8"></meta>
     </head>
     <body>
-        <h1>Datos de la persona</h1>
+        <h1>Datos del libro</h1>
         <a th:href="@{/}">Regresar</a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${libro}">
-            <input type="hidden" name="idPersona" th:field="*{idLibro}" />
+            <input type="hidden" name="idNombre" th:field="*{idLibro}" />
             <label for="nombre">Nombre</label>
             <input type="text" th:field="*{nombre}" />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
             <br/>
             <label for="autor">Autor</label>
             <input type="text" th:field="*{autor}" />
+            <span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></span>
             <br/>
             <label for="editorial">Editorial</label>    
             <input type="text" th:field="*{editorial}" />
+            <span th:if="${#fields.hasErrors('editorial')}" th:errors="*{editorial}"></span>
             <br/>
             <label for="extension">Extension</label>
-            <input type="text" th:field="*{extension}" />
+            <input type="text" th:field="*{extension}" />  
+            <span th:if="${#fields.hasErrors('extension')}" th:errors="*{extension}"></span>
             <br/>
             <input type="submit" name="guardar" value="Guardar" />
         </form>

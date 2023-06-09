@@ -1,5 +1,5 @@
 package mx.com.gm.domain;
-
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
@@ -14,10 +14,14 @@ public class Libro implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLibro;
-    
+
+    @NotEmpty
     private String nombre;
+    @NotEmpty
     private String editorial;
+    @NotEmpty
     private String extension;
+    @NotEmpty
     private String autor;
 
     
