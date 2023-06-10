@@ -7,29 +7,30 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        <h2>Datos del libro</h2>
-        <a th:href="@{/}">Regresar</a>
+        <h2>[[#{guardar.datos-libro}]]</h2>
+        <a th:href="@{/}">[[#{accion.regresar}]]:</a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${libro}">
             <input type="hidden" name="idNombre" th:field="*{idLibro}" />
-            <label for="nombre">Nombre</label>
+            <label for="nombre">[[#{libro.titulo}]]:</label>
             <input type="text" th:field="*{nombre}" />
             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
             <br/>
-            <label for="autor">Autor</label>
+            <label for="autor">[[#{libro.autor}]]:</label>
             <input type="text" th:field="*{autor}" />
             <span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></span>
             <br/>
-            <label for="editorial">Editorial</label>    
+            <label for="editorial">[[#{libro.editorial}]]:</label>    
             <input type="text" th:field="*{editorial}" />
             <span th:if="${#fields.hasErrors('editorial')}" th:errors="*{editorial}"></span>
             <br/>
-            <label for="extension">Extension</label>
+            <label for="extension">[[#{libro.extension}]]:</label>
             <input type="text" th:field="*{extension}" />  
             <span th:if="${#fields.hasErrors('extension')}" th:errors="*{extension}"></span>
             <br/>
-            <input type="submit" name="guardar" value="Guardar" />
+            <input type="submit" name="guardar" th:value="#{accion.guardar.libro}" />
         </form>
         <footer th:replace="layout/plantilla :: footer"></footer>
     </body>
 </html>
+ 

@@ -6,17 +6,17 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        <a th:href="@{/agregar}">Crear persona</a>
+        <a th:href="@{/agregar}">[[#{accion.crear}]]</a>
         <br/>
         <div th:if="${libros != null and !libros.empty}">
                 <table border="1">
                     <tr>
-                        <th>Nombre</th>
-                        <th>Editorial</th>
-                        <th>Extension</th>
-                        <th>Autor</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>[[#{libro.titulo}]]</th>
+                        <th>[[#{libro.editorial}]]</th>
+                        <th>[[#{libro.autor}]]</th>
+                        <th>[[#{libro.extension}]]</th>
+                        <th>[[#{accion.editar}]]</th>
+                        <th>[[#{accion.eliminar}]]</th>
 
                     </tr>
                     <!-- Ciclo for para cada persona guardada en la parte de controlador -->
@@ -27,10 +27,10 @@
                         <td th:text="${libro.autor}">Mostrar Autor</td>
                         <td>
                             <!-- <a th:href="@{/editar/{id}(id=${libro.id})}">Editar</a> -->
-                            <a th:href="@{/editar/} + ${libro.idLibro}" th:text="Editar">Editar</a>
+                            <a th:href="@{/editar/} + ${libro.idLibro}" th:text="Editar">[[#{accion.editar}]]</a>
                         </td>
                         <td>
-                            <a th:href="@{/eliminar/{idLibro}(idLibro=${libro.idLibro})}">Eliminar</a>
+                            <a th:href="@{/eliminar/{idLibro}(idLibro=${libro.idLibro})}">[[#{accion.eliminar}]]</a>
                         </td>
                     </tr>
                 </table>
