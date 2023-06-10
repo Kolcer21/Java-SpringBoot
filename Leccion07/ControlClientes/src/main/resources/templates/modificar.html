@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Datos del libro</title>
+        <meta charset="UTF-8"></meta>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        <h2>Datos del libro</h2>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${libro}">
+            <input type="hidden" name="idNombre" th:field="*{idLibro}" />
+            <label for="nombre">Nombre</label>
+            <input type="text" th:field="*{nombre}" />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            <br/>
+            <label for="autor">Autor</label>
+            <input type="text" th:field="*{autor}" />
+            <span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></span>
+            <br/>
+            <label for="editorial">Editorial</label>    
+            <input type="text" th:field="*{editorial}" />
+            <span th:if="${#fields.hasErrors('editorial')}" th:errors="*{editorial}"></span>
+            <br/>
+            <label for="extension">Extension</label>
+            <input type="text" th:field="*{extension}" />  
+            <span th:if="${#fields.hasErrors('extension')}" th:errors="*{extension}"></span>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar" />
+        </form>
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>
