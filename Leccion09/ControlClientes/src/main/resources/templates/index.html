@@ -23,7 +23,7 @@
                     <tr th:each="libro : ${libros}">
                         <td th:text="${libro.nombre}">Mostrar Nombre</td>
                         <td th:text="${libro.editorial}">Mostrar Editorial</td>
-                        <td th:text="${libro.extension + ' páginas'}">Mostrar Extensión</td>
+                        <td th:text="${libro.extension +' '}+#{plantilla.cantidad}">Mostrar Extensión</td>
                         <td th:text="${libro.autor}">Mostrar Autor</td>
                         <td>
                             <!-- <a th:href="@{/editar/{id}(id=${libro.id})}">Editar</a> -->
