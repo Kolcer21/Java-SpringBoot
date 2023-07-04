@@ -36,6 +36,8 @@ public class ControladorInicio {
         model.addAttribute("libros", libros);   
         log.info("Ejecuntando controlador de MVC");
         log.info("Usuario que hizo login "+user);
+
+        model.addAttribute("totalLibros", libros.size());
         return "index";
     }
     
